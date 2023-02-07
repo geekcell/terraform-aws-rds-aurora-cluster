@@ -35,9 +35,26 @@
 
 # Terraform AWS RDS Aurora
 
-Terraform module which creates an AWS RDS Cluster with Aurora Setup.
-The focus on this module lies within it's simplicity by providing default values
-that should make sense for most use cases.
+This Terraform module provides a preconfigured solution for setting up AWS
+RDS Aurora clusters in your AWS account. With this module, you can easily
+and efficiently create and manage RDS Aurora clusters with advanced features
+such as extended backups for daily, weekly, monthly, quarterly, and yearly
+intervals. Our team has extensive experience working with AWS RDS Aurora
+and has optimized this module to provide the best possible experience for
+users.
+
+By using this Terraform module, you can save time and effort in setting
+up and managing your RDS Aurora clusters, as well as ensure that your data
+is secure and protected. The module creates two users on the RDS Proxy,
+one with DML rights and one with DDL rights, to provide an additional
+layer of security and management. The autoscaling feature is also
+preconfigured, allowing for efficient and automatic management of
+resources based on your workload. The module encapsulates all necessary
+configurations, making it easy to use and integrate into your existing
+AWS environment. Whether you are just getting started with AWS RDS Aurora
+or looking for a more efficient way to manage your clusters, this
+Terraform module provides a preconfigured solution with advanced features
+such as extended backups, user management, and autoscaling.
 
 ## Inputs
 
