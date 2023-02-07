@@ -34,8 +34,6 @@ resource "aws_rds_cluster_instance" "main" {
   apply_immediately = var.apply_immediately
 
   # Maintenance
-  preferred_backup_window      = var.preferred_backup_window
-  preferred_maintenance_window = var.preferred_maintenance_window
   copy_tags_to_snapshot        = var.copy_tags_to_snapshot
   ca_cert_identifier           = var.ca_cert_identifier
 

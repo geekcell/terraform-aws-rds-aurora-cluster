@@ -106,18 +106,6 @@ variable "performance_insights_retention_period" {
   type        = number
 }
 
-variable "preferred_backup_window" {
-  default     = "00:00-02:30"
-  description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
-  type        = string
-}
-
-variable "preferred_maintenance_window" {
-  default     = "Mo:03:00-wed:04:30"
-  description = "The weekly time range during which system maintenance can occur, in (UTC)."
-  type        = string
-}
-
 variable "publicly_accessible" {
   default     = false
   description = "Bool to control if instance is publicly accessible."

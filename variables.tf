@@ -152,7 +152,7 @@ variable "preferred_backup_window" {
 }
 
 variable "preferred_maintenance_window" {
-  default     = "Mo:03:00-wed:04:30"
+  default     = "Mon:03:00-Mon:04:30"
   description = "The weekly time range during which system maintenance can occur, in (UTC)."
   type        = string
 }
