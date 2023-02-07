@@ -141,14 +141,13 @@ variable "port" {
 }
 
 variable "preferred_backup_window" {
-  default     = "01:00-04:00"
+  default     = "00:00-02:30"
   description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
   type        = string
 }
 
-
 variable "preferred_maintenance_window" {
-  default     = "wed:04:00-wed:05:30"
+  default     = "Mo:03:00-wed:04:30"
   description = "The weekly time range during which system maintenance can occur, in (UTC)."
   type        = string
 }

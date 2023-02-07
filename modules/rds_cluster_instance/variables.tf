@@ -106,16 +106,16 @@ variable "performance_insights_retention_period" {
   type        = number
 }
 
-variable "preferred_maintenance_window" {
-  default     = "Mon:00:00-Mon:03:00"
-  description = "The window to perform maintenance in."
+variable "preferred_backup_window" {
+  default     = "00:00-02:30"
+  description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
   type        = string
 }
 
-variable "publicly_accessible" {
-  default     = false
-  description = "Specifies if the RDS instance is publicly accessible."
-  type        = bool
+variable "preferred_maintenance_window" {
+  default     = "Mo:03:00-wed:04:30"
+  description = "The weekly time range during which system maintenance can occur, in (UTC)."
+  type        = string
 }
 
 variable "storage_type" {

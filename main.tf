@@ -43,6 +43,7 @@ module "rds_cluster" {
 
   # Security
   deletion_protection          = var.deletion_protection
+  preferred_backup_window      = var.preferred_backup_window
   preferred_maintenance_window = var.preferred_maintenance_window
   backup_retention_period      = var.backup_retention_period
 
@@ -79,6 +80,7 @@ module "rds_cluster_instance" {
   db_parameters = var.db_parameters
 
   # Security
+  preferred_backup_window      = var.preferred_backup_window
   preferred_maintenance_window = var.preferred_maintenance_window
   apply_immediately            = var.apply_immediately
 
@@ -123,7 +125,7 @@ module "db_event_subscription" {
 
   # Source(s)
   source_type = "db-cluster"
-  source_ids = [
+  source_ids  = [
     module.rds_cluster.id
   ]
 

@@ -146,14 +146,14 @@ variable "performance_insights_retention_period" {
 }
 
 variable "preferred_backup_window" {
-  default     = "03:00-06:00"
+  default     = "00:00-02:30"
   description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
   type        = string
 }
 
 variable "preferred_maintenance_window" {
-  default     = "Mon:00:00-Mon:03:00"
-  description = "The window to perform maintenance in."
+  default     = "Mo:03:00-wed:04:30"
+  description = "The weekly time range during which system maintenance can occur, in (UTC)."
   type        = string
 }
 
