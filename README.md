@@ -35,9 +35,26 @@
 
 # Terraform AWS RDS Aurora
 
-Terraform module which creates an AWS RDS Cluster with Aurora Setup.
-The focus on this module lies within it's simplicity by providing default values
-that should make sense for most use cases.
+This Terraform module provides a preconfigured solution for setting up AWS
+RDS Aurora clusters in your AWS account. With this module, you can easily
+and efficiently create and manage RDS Aurora clusters with advanced features
+such as extended backups for daily, weekly, monthly, quarterly, and yearly
+intervals. Our team has extensive experience working with AWS RDS Aurora
+and has optimized this module to provide the best possible experience for
+users.
+
+By using this Terraform module, you can save time and effort in setting
+up and managing your RDS Aurora clusters, as well as ensure that your data
+is secure and protected. The module creates two users on the RDS Proxy,
+one with DML rights and one with DDL rights, to provide an additional
+layer of security and management. The autoscaling feature is also
+preconfigured, allowing for efficient and automatic management of
+resources based on your workload. The module encapsulates all necessary
+configurations, making it easy to use and integrate into your existing
+AWS environment. Whether you are just getting started with AWS RDS Aurora
+or looking for a more efficient way to manage your clusters, this
+Terraform module provides a preconfigured solution with advanced features
+such as extended backups, user management, and autoscaling.
 
 ## Inputs
 
@@ -69,7 +86,6 @@ that should make sense for most use cases.
 | <a name="input_preferred_maintenance_window"></a> [preferred\_maintenance\_window](#input\_preferred\_maintenance\_window) | The window to perform maintenance in. | `string` | `"Mon:00:00-Mon:03:00"` | no |
 | <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | Storage type. | `string` | `"aurora"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS Cluster Instance. | `map(any)` | `{}` | no |
-| <a name="input_username"></a> [username](#input\_username) | Username for the master DB user. | `string` | `null` | no |
 | <a name="input_vpc_security_group_ids_rds_cluster"></a> [vpc\_security\_group\_ids\_rds\_cluster](#input\_vpc\_security\_group\_ids\_rds\_cluster) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |
 | <a name="input_vpc_security_group_ids_rds_proxy"></a> [vpc\_security\_group\_ids\_rds\_proxy](#input\_vpc\_security\_group\_ids\_rds\_proxy) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |
 | <a name="input_vpc_subnet_ids"></a> [vpc\_subnet\_ids](#input\_vpc\_subnet\_ids) | List of VPC subnet IDs. | `list(string)` | n/a | yes |
@@ -80,22 +96,52 @@ No outputs.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.40 |
+No providers.
 
 ## Resources
 
-- data source.aws_caller_identity.current (data.tf#1)
-- data source.aws_canonical_user_id.current (data.tf#3)
-- data source.aws_partition.current (data.tf#5)
-- data source.aws_region.current (data.tf#7)
 
 # Examples
-### Full
+### Basic Example
 ```hcl
-module "example" {
+module "basic-example" {
   source = "../../"
+
+  cluster_identifier                 = "my-db"
+  database_subnet_group_name         = "db-subnet-group"
+  instance_class                     = "db.t3.medium"
+  vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
+  vpc_subnet_ids                     = ["subnet-12345678", "subnet-87654321"]
+}
+```
+### with RDS Proxy
+```hcl
+module "with-rds-proxy" {
+  source = "../../"
+
+  cluster_identifier                 = "my-cluster"
+  database_subnet_group_name         = "db-subnet-group-name"
+  instance_class                     = "db.t4g.medium"
+  vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
+  vpc_subnet_ids = [
+    "subnet-123", "subnet-456", "subnet-789"
+  ]
+
+  enable_db_proxy = true
+}
+```
+### with enhanced Backups
+```hcl
+module "with-enhanced-backups" {
+  source = "../../"
+
+  cluster_identifier                 = "my-cluster"
+  database_subnet_group_name         = "db-subnet-group-name"
+  instance_class                     = "db.t4g.medium"
+  vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
+  vpc_subnet_ids                     = ["subnet-12345678", "subnet-87654321"]
+
+  enable_enhanced_backups = true
 }
 ```
 <!-- END_TF_DOCS -->
