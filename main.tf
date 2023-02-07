@@ -80,7 +80,7 @@ module "rds_cluster_instance" {
   db_parameters = var.db_parameters
 
   # Security
-  apply_immediately            = var.apply_immediately
+  apply_immediately = var.apply_immediately
 
   # Maintenance
   auto_minor_version_upgrade = var.auto_minor_version_upgrade
