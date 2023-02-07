@@ -34,13 +34,24 @@ module "rds_cluster" {
   # The engine version to use
   engine         = var.engine
   engine_version = var.engine_version
+  database_name  = var.database_name
 
   # Network
   db_subnet_group_name   = var.database_subnet_group_name
   vpc_security_group_ids = var.vpc_security_group_ids_rds_cluster
+  port                   = var.port
 
   # Security
-  deletion_protection = var.deletion_protection
+  deletion_protection          = var.deletion_protection
+  preferred_maintenance_window = var.preferred_maintenance_window
+  backup_retention_period      = var.backup_retention_period
+
+  # Maintenance
+  allow_major_version_upgrade = var.allow_major_version_upgrade
+  apply_immediately           = var.apply_immediately
+
+  # Cloudwatch Logs
+  enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
   tags = var.tags
 }
@@ -67,6 +78,21 @@ module "rds_cluster_instance" {
   # Parameter group
   db_parameters = var.db_parameters
 
+  # Security
+  preferred_maintenance_window = var.preferred_backup_window
+  apply_immediately            = var.apply_immediately
+
+  # Maintenance
+  auto_minor_version_upgrade = var.auto_minor_version_upgrade
+
+  # Performance Insights
+  performance_insights_enabled          = var.performance_insights_enabled
+  performance_insights_retention_period = var.performance_insights_retention_period
+
+  # Cloudwatch Logs
+  monitoring_interval = var.monitoring_interval
+
+
   tags = var.tags
 }
 
@@ -82,7 +108,6 @@ module "db_proxy" {
   users = var.db_proxy_users
 
   # Cluster settings
-  rds_cluster_endpoint   = module.rds_cluster.endpoint
   rds_cluster_identifier = module.rds_cluster.id
   vpc_subnet_ids         = var.vpc_subnet_ids
   vpc_security_group_ids = var.vpc_security_group_ids_rds_proxy

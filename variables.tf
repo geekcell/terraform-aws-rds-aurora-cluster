@@ -113,12 +113,6 @@ variable "instance_class" {
   type        = string
 }
 
-variable "monitoring_interval" {
-  default     = 60
-  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance."
-  type        = number
-}
-
 variable "db_parameters" {
   default = [
     {
@@ -131,6 +125,12 @@ variable "db_parameters" {
     name  = string
     value = string
   }))
+}
+
+variable "monitoring_interval" {
+  default     = 60
+  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance."
+  type        = number
 }
 
 variable "performance_insights_enabled" {
@@ -172,12 +172,6 @@ variable "storage_type" {
     condition     = contains(["aurora"], var.storage_type)
     error_message = "Value must be `aurora`."
   }
-}
-
-variable "username" {
-  default     = null
-  description = "Username for the master DB user."
-  type        = string
 }
 
 variable "vpc_security_group_ids_rds_cluster" {

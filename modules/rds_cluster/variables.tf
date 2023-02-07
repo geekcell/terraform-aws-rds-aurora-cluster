@@ -89,12 +89,6 @@ variable "deletion_protection" {
 }
 
 variable "enabled_cloudwatch_logs_exports" {
-  default = [
-    "audit",
-    "error",
-    "general",
-    "slowquery"
-  ]
   description = "Set of log types to enable for exporting to CloudWatch logs."
   type        = list(string)
 }
@@ -117,7 +111,7 @@ variable "engine_version" {
 }
 
 variable "final_snapshot_identifier" {
-  default     = null
+  default     = "final-snapshot"
   description = "The name of your final DB snapshot when this DB cluster is deleted."
   type        = string
 }
@@ -137,12 +131,6 @@ variable "iam_roles" {
 variable "iops" {
   default     = null
   description = "The amount of Provisioned IOPS to be initially allocated for each DB instance in the Multi-AZ DB cluster."
-  type        = number
-}
-
-variable "monitoring_interval" {
-  default     = 0
-  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance."
   type        = number
 }
 
