@@ -22,7 +22,7 @@ variable "event_categories" {
     "maintenance",
     "migration",
     "notification",
-    "serverless"
+    "serverless",
   ]
   description = "A list of event categories for a SourceType that you want to subscribe to."
   type        = list(string)

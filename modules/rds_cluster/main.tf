@@ -35,13 +35,14 @@ resource "aws_rds_cluster" "main" {
 
   # Snapshots
   copy_tags_to_snapshot     = var.copy_tags_to_snapshot
-  final_snapshot_identifier = "${var.cluster_identifier}-final-snapshot"
+  final_snapshot_identifier = format("%s-%s", var.cluster_identifier, var.final_snapshot_identifier)
   skip_final_snapshot       = var.skip_final_snapshot
 
   # Network
   vpc_security_group_ids = var.vpc_security_group_ids
   db_subnet_group_name   = var.db_subnet_group_name
   availability_zones     = data.aws_availability_zones.available.names
+  port                   = var.port
 
   # Cluster modifications
   apply_immediately = var.apply_immediately

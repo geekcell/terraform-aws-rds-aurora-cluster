@@ -89,12 +89,6 @@ variable "deletion_protection" {
 }
 
 variable "enabled_cloudwatch_logs_exports" {
-  default = [
-    "audit",
-    "error",
-    "general",
-    "slowquery"
-  ]
   description = "Set of log types to enable for exporting to CloudWatch logs."
   type        = list(string)
 }
@@ -117,7 +111,7 @@ variable "engine_version" {
 }
 
 variable "final_snapshot_identifier" {
-  default     = null
+  default     = "final-snapshot"
   description = "The name of your final DB snapshot when this DB cluster is deleted."
   type        = string
 }
@@ -140,12 +134,6 @@ variable "iops" {
   type        = number
 }
 
-variable "monitoring_interval" {
-  default     = 0
-  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance."
-  type        = number
-}
-
 variable "port" {
   default     = 3306
   description = "The port on which the DB accepts connections."
@@ -153,14 +141,13 @@ variable "port" {
 }
 
 variable "preferred_backup_window" {
-  default     = "01:00-04:00"
+  default     = "00:00-02:30"
   description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
   type        = string
 }
 
-
 variable "preferred_maintenance_window" {
-  default     = "wed:04:00-wed:05:30"
+  default     = "Mon:03:00-Mon:04:30"
   description = "The weekly time range during which system maintenance can occur, in (UTC)."
   type        = string
 }

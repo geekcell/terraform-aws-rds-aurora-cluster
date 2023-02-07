@@ -20,9 +20,17 @@ content: |-
   {{- end }}
 
   # Examples
-    ### Full
+    ### Basic Example
     ```hcl
     {{ include "examples/basic-example/main.tf" }}
+    ```
+    ### with RDS Proxy
+    ```hcl
+    {{ include "examples/with-rds-proxy/main.tf" }}
+    ```
+    ### with enhanced Backups
+    ```hcl
+    {{ include "examples/with-enhanced-backups/main.tf" }}
     ```
 
 output:

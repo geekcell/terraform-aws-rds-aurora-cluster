@@ -18,12 +18,6 @@ variable "apply_immediately" {
   type        = bool
 }
 
-variable "backup_retention_period" {
-  default     = 35
-  description = "The days to retain backups for. Must be between 0 and 35."
-  type        = number
-}
-
 variable "ca_cert_identifier" {
   default     = "rds-ca-2019"
   description = "The identifier of the CA certificate for the DB instance."
@@ -112,21 +106,9 @@ variable "performance_insights_retention_period" {
   type        = number
 }
 
-variable "preferred_backup_window" {
-  default     = "03:00-06:00"
-  description = "The daily time range (in UTC) during which automated backups are created if they are enabled."
-  type        = string
-}
-
-variable "preferred_maintenance_window" {
-  default     = "Mon:00:00-Mon:03:00"
-  description = "The window to perform maintenance in."
-  type        = string
-}
-
 variable "publicly_accessible" {
   default     = false
-  description = "Specifies if the RDS instance is publicly accessible."
+  description = "Bool to control if instance is publicly accessible."
   type        = bool
 }
 

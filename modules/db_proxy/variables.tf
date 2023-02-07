@@ -11,11 +11,6 @@ variable "rds_cluster_identifier" {
   type        = string
 }
 
-variable "rds_cluster_endpoint" {
-  description = "The DNS address of the RDS cluster."
-  type        = string
-}
-
 # AWS RDS Proxy
 variable "auth_scheme" {
   default     = "SECRETS"

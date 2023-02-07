@@ -1,7 +1,7 @@
 # Context
 variable "tags" {
   default     = {}
-  description = "Tags to add to the AWS RDS Proxy."
+  description = "Tags to add to the AWS RDS Enhanced Monitoring."
   type        = map(any)
 }
 
@@ -10,4 +10,3 @@ variable "name" {
   description = "The name of the DB Enhanced Monitoring Role."
   type        = string
 }
-
