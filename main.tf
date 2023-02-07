@@ -79,7 +79,7 @@ module "rds_cluster_instance" {
   db_parameters = var.db_parameters
 
   # Security
-  preferred_maintenance_window = var.preferred_backup_window
+  preferred_maintenance_window = var.preferred_maintenance_window
   apply_immediately            = var.apply_immediately
 
   # Maintenance
