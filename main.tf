@@ -125,7 +125,7 @@ module "db_event_subscription" {
 
   # Source(s)
   source_type = "db-cluster"
-  source_ids  = [
+  source_ids = [
     module.rds_cluster.id
   ]
 

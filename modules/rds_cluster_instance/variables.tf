@@ -118,6 +118,12 @@ variable "preferred_maintenance_window" {
   type        = string
 }
 
+variable "publicly_accessible" {
+  default     = false
+  description = "Bool to control if instance is publicly accessible."
+  type        = bool
+}
+
 variable "storage_type" {
   default     = "aurora"
   description = "Storage type."
