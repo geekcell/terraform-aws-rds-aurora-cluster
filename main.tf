@@ -1,5 +1,5 @@
 /**
- * # Terraform AWS RDS Aurora
+ * # Terraform AWS RDS Aurora Cluster
  *
  * This Terraform module provides a preconfigured solution for setting up AWS
  * RDS Aurora clusters in your AWS account. With this module, you can easily

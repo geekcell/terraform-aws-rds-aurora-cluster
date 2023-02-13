@@ -33,7 +33,7 @@
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/geekcell/terraform-aws-aurora-cluster/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=geekcell%2Fterraform-aws-aurora-cluster&benchmark=HIPAA)
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/geekcell/terraform-aws-aurora-cluster/fedramp_moderate)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=geekcell%2Fterraform-aws-aurora-cluster&benchmark=FEDRAMP+%28MODERATE%29)
 
-# Terraform AWS RDS Aurora
+# Terraform AWS RDS Aurora Cluster
 
 This Terraform module provides a preconfigured solution for setting up AWS
 RDS Aurora clusters in your AWS account. With this module, you can easily
