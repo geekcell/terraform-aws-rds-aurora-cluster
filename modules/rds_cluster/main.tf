@@ -90,6 +90,7 @@ module "kms" {
 resource "random_string" "master_username" {
   length  = 12
   special = false
+  numeric = false
 }
 
 resource "random_password" "master_password" {
