@@ -66,7 +66,7 @@ module "db_parameter_group" {
 module "kms" {
   for_each = toset(["performance_insights"])
 
-  source = "github.com/geekcell/terraform-aws-kms?ref=v1"
+  source = "github.com/geekcell/terraform-aws-kms?ref=main"
   alias  = format("alias/rds/cluster/%s/instance/%s/%s", var.identifier, var.identifier, each.key)
 }
 
