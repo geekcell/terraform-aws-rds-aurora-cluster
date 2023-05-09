@@ -92,7 +92,6 @@ module "rds_cluster_instance" {
   # Cloudwatch Logs
   monitoring_interval = var.monitoring_interval
 
-
   tags = var.tags
 }
 
