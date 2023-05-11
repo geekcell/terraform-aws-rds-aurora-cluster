@@ -48,6 +48,7 @@ resource "aws_db_proxy_endpoint" "read_only" {
   db_proxy_name          = aws_db_proxy.main.name
   db_proxy_endpoint_name = "${var.name}-read-only"
   vpc_subnet_ids         = var.vpc_subnet_ids
+  vpc_security_group_ids = var.vpc_security_group_ids
   target_role            = "READ_ONLY"
 }
 
