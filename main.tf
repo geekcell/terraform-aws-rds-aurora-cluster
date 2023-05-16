@@ -123,7 +123,7 @@ module "db_event_subscription" {
 
   # Source(s)
   source_type = "db-cluster"
-  source_ids = [
+  source_ids  = [
     module.rds_cluster.id
   ]
 
@@ -159,6 +159,7 @@ module "db_instance_parameter_group" {
 
   name   = coalesce(var.db_instance_parameter_group_name, var.cluster_identifier)
   family = var.db_instance_family
+  type   = "instance"
 
   parameters = var.db_instance_parameters
 
@@ -172,6 +173,7 @@ module "db_cluster_parameter_group" {
 
   name   = coalesce(var.db_cluster_parameter_group_name, var.cluster_identifier)
   family = var.db_cluster_family
+  type   = "cluster"
 
   parameters = var.db_cluster_parameters
 
