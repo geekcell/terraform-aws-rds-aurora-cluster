@@ -36,16 +36,12 @@ variable "copy_tags_to_snapshot" {
 }
 
 variable "db_parameters" {
-  default = [
-    {
-      name  = "autocommit"
-      value = "1"
-    }
-  ]
+  default     = []
   description = "The name and Values of the DB parameters."
-  type = list(object({
-    name  = string
-    value = string
+  type        = list(object({
+    apply_method = optional(string)
+    name         = string
+    value        = string
   }))
 }
 

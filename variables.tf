@@ -114,16 +114,12 @@ variable "instance_class" {
 }
 
 variable "db_parameters" {
-  default = [
-    {
-      name  = "autocommit"
-      value = "1"
-    }
-  ]
-  description = "The name and Values of the DB parameters."
-  type = list(object({
-    name  = string
-    value = string
+  default     = []
+  description = "The name and values of the DB parameters."
+  type        = list(object({
+    apply_method = optional(string)
+    name         = string
+    value        = string
   }))
 }
 
@@ -185,7 +181,6 @@ variable "vpc_security_group_ids_rds_proxy" {
   description = "List of VPC security groups to associate with the RDS Proxy."
   type        = list(string)
 }
-
 
 variable "vpc_subnet_ids" {
   description = "List of VPC subnet IDs."

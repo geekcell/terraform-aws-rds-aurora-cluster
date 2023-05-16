@@ -10,7 +10,7 @@ resource "aws_rds_cluster_instance" "main" {
   instance_class = var.instance_class
 
   # Parameter Group
-  db_parameter_group_name = var.db_parameter_group_name
+  db_parameter_group_name = length(var.db_parameters) > 0 ? module.db_parameter_group[0].name : var.db_parameter_group_name
 
   # Engine
   engine                     = var.engine
@@ -53,6 +53,8 @@ module "db_enhanced_monitoring" {
 }
 
 module "db_parameter_group" {
+  count = length(var.db_parameters) > 0 ? 1 : 0
+
   source = "../db_parameter_group/"
 
   name   = var.identifier
