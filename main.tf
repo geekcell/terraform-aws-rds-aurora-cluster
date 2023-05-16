@@ -52,8 +52,8 @@ module "rds_cluster" {
   apply_immediately           = var.apply_immediately
 
   # Parameter Groups
-  db_cluster_parameter_group_name  = var.db_cluster_parameter_group_name
-  db_instance_parameter_group_name = var.db_instance_parameter_group_name
+  db_cluster_parameter_group_name  = length(var.db_cluster_parameters) > 0 ? module.db_cluster_parameter_group[0].name : var.db_cluster_parameter_group_name
+  db_instance_parameter_group_name = length(var.db_instance_parameters) > 0 ? module.db_instance_parameter_group[0].name : var.db_instance_parameter_group_name
 
   # Cloudwatch Logs
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
@@ -152,12 +152,12 @@ module "backup" {
   tags = var.tags
 }
 
-module "db_parameter_group" {
+module "db_instance_parameter_group" {
   count = length(var.db_instance_parameters) > 0 ? 1 : 0
 
   source = "../db_parameter_group/"
 
-  name   = coalesce(var.db_instance_parameter_group_name, var.identifier)
+  name   = coalesce(var.db_instance_parameter_group_name, var.cluster_identifier)
   family = var.db_instance_family
 
   parameters = var.db_instance_parameters
