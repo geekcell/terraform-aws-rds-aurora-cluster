@@ -26,3 +26,9 @@ variable "parameters" {
     value        = string
   }))
 }
+
+variable "type" {
+  default     = "instance"
+  description = "Whether to create a 'cluster' or 'instance' parameter group."
+  type        = string
+}

@@ -9,6 +9,7 @@
 | <a name="input_name"></a> [name](#input\_name) | The name of the DB parameter group. | `string` | n/a | yes |
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | The name and Values of the DB parameters. | <pre>list(object({<br>    apply_method = string<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS DB Parameter Group. | `map(any)` | `{}` | no |
+| <a name="input_type"></a> [type](#input\_type) | Whether to create a 'cluster' or 'instance' parameter group. | `string` | `"instance"` | no |
 
 ## Outputs
 
@@ -25,4 +26,5 @@
 ## Resources
 
 - resource.aws_db_parameter_group.main (modules/db_parameter_group/main.tf#1)
+- resource.aws_rds_cluster_parameter_group.main (modules/db_parameter_group/main.tf#20)
 <!-- END_TF_DOCS -->
