@@ -1,5 +1,4 @@
 resource "aws_rds_cluster_instance" "main" {
-
   # Cluster Identifier
   cluster_identifier = var.cluster_identifier
 
@@ -8,9 +7,6 @@ resource "aws_rds_cluster_instance" "main" {
 
   # Hardware
   instance_class = var.instance_class
-
-  # Parameter Group
-  db_parameter_group_name = length(var.db_parameters) > 0 ? module.db_parameter_group[0].name : var.db_parameter_group_name
 
   # Engine
   engine                     = var.engine
@@ -50,19 +46,6 @@ module "db_enhanced_monitoring" {
   source = "../db_enhanced_monitoring/"
 
   name = var.identifier
-}
-
-module "db_parameter_group" {
-  count = length(var.db_parameters) > 0 ? 1 : 0
-
-  source = "../db_parameter_group/"
-
-  name   = var.identifier
-  family = var.family
-
-  parameters = var.db_parameters
-
-  tags = var.tags
 }
 
 module "kms" {

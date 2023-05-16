@@ -20,7 +20,7 @@ variable "name" {
 variable "parameters" {
   default     = []
   description = "The name and Values of the DB parameters."
-  type        = list(object({
+  type = list(object({
     apply_method = string
     name         = string
     value        = string

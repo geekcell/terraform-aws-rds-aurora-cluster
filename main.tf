@@ -51,6 +51,10 @@ module "rds_cluster" {
   allow_major_version_upgrade = var.allow_major_version_upgrade
   apply_immediately           = var.apply_immediately
 
+  # Parameter Groups
+  db_cluster_parameter_group_name  = var.db_cluster_parameter_group_name
+  db_instance_parameter_group_name = var.db_instance_parameter_group_name
+
   # Cloudwatch Logs
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
@@ -75,9 +79,6 @@ module "rds_cluster_instance" {
 
   # Network
   db_subnet_group_name = var.database_subnet_group_name
-
-  # Parameter group
-  db_parameters = var.db_parameters
 
   # Security
   apply_immediately = var.apply_immediately
@@ -147,6 +148,32 @@ module "backup" {
 
   # AWS needs to know what kind of services we want to backup
   service = "rds"
+
+  tags = var.tags
+}
+
+module "db_parameter_group" {
+  count = length(var.db_instance_parameters) > 0 ? 1 : 0
+
+  source = "../db_parameter_group/"
+
+  name   = coalesce(var.db_instance_parameter_group_name, var.identifier)
+  family = var.db_instance_family
+
+  parameters = var.db_instance_parameters
+
+  tags = var.tags
+}
+
+module "db_cluster_parameter_group" {
+  count = length(var.db_cluster_parameters) > 0 ? 1 : 0
+
+  source = "../db_parameter_group/"
+
+  name   = coalesce(var.db_cluster_parameter_group_name, var.cluster_identifier)
+  family = var.db_cluster_family
+
+  parameters = var.db_cluster_parameters
 
   tags = var.tags
 }

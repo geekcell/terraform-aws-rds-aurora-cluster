@@ -73,7 +73,7 @@ variable "db_cluster_parameter_group_name" {
 
 variable "db_instance_parameter_group_name" {
   default     = null
-  description = " Instance parameter group to associate with all instances of the DB cluster."
+  description = "Instance parameter group to associate with all instances of the DB cluster."
   type        = string
 }
 

@@ -35,22 +35,6 @@ variable "copy_tags_to_snapshot" {
   type        = bool
 }
 
-variable "db_parameters" {
-  default     = []
-  description = "The name and Values of the DB parameters."
-  type        = list(object({
-    apply_method = optional(string)
-    name         = string
-    value        = string
-  }))
-}
-
-variable "db_parameter_group_name" {
-  default     = null
-  description = "A parameter group to associate with the instance."
-  type        = string
-}
-
 variable "db_subnet_group_name" {
   description = "A DB subnet group to associate with this DB instance."
   type        = string
@@ -75,12 +59,6 @@ variable "identifier" {
 
 variable "instance_class" {
   description = "The instance type of the RDS instance."
-  type        = string
-}
-
-variable "family" {
-  default     = "mysql8.0"
-  description = "The family of the DB parameter group."
   type        = string
 }
 

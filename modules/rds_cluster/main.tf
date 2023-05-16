@@ -1,15 +1,13 @@
 resource "aws_rds_cluster" "main" {
-
   # Cluster identifier
   cluster_identifier = var.cluster_identifier
 
   # Engine
-  engine                           = var.engine
-  engine_version                   = var.engine_version
-  allow_major_version_upgrade      = var.allow_major_version_upgrade
-  db_instance_parameter_group_name = var.db_instance_parameter_group_name
-  engine_mode                      = var.engine_mode
-  iam_roles                        = var.iam_roles
+  engine                      = var.engine
+  engine_version              = var.engine_version
+  allow_major_version_upgrade = var.allow_major_version_upgrade
+  engine_mode                 = var.engine_mode
+  iam_roles                   = var.iam_roles
 
   # Storage
   allocated_storage = var.allocated_storage
@@ -22,8 +20,9 @@ resource "aws_rds_cluster" "main" {
   database_name = var.database_name
 
   # Master-Credentials
-  master_username = random_string.master_username.result
-  master_password = random_password.master_password.result
+  master_username                     = random_string.master_username.result
+  master_password                     = random_password.master_password.result
+  iam_database_authentication_enabled = var.iam_database_authentication_enabled
 
   # Backups
   backup_retention_period = var.backup_retention_period
@@ -51,8 +50,8 @@ resource "aws_rds_cluster" "main" {
   db_cluster_instance_class = var.db_cluster_instance_class
 
   # Parameter Group
-  db_cluster_parameter_group_name     = var.db_cluster_parameter_group_name
-  iam_database_authentication_enabled = var.iam_database_authentication_enabled
+  db_cluster_parameter_group_name  = var.db_cluster_parameter_group_name
+  db_instance_parameter_group_name = var.db_instance_parameter_group_name
 
   # Cloudwatch
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports

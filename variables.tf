@@ -113,10 +113,44 @@ variable "instance_class" {
   type        = string
 }
 
-variable "db_parameters" {
+variable "db_instance_family" {
+  default     = "mysql8.0"
+  description = "The family of the DB parameter group."
+  type        = string
+}
+
+variable "db_instance_parameter_group_name" {
+  description = "The name of the DB parameter group."
+  default     = null
+  type        = string
+}
+
+variable "db_instance_parameters" {
   default     = []
   description = "The name and values of the DB parameters."
-  type        = list(object({
+  type = list(object({
+    apply_method = optional(string)
+    name         = string
+    value        = string
+  }))
+}
+
+variable "db_cluster_family" {
+  default     = "aurora-mysql8.0"
+  description = "The family of the DB cluster group."
+  type        = string
+}
+
+variable "db_cluster_parameter_group_name" {
+  description = "The name of the DB cluster parameter group."
+  default     = null
+  type        = string
+}
+
+variable "db_cluster_parameters" {
+  default     = []
+  description = "The name and values of the DB parameters."
+  type = list(object({
     apply_method = optional(string)
     name         = string
     value        = string

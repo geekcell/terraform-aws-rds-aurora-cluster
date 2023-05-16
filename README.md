@@ -69,7 +69,12 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_database_event_recipients"></a> [database\_event\_recipients](#input\_database\_event\_recipients) | Recipients of the database events. | `list(string)` | `[]` | no |
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | Name for an automatically created database on cluster creation. | `string` | `null` | no |
 | <a name="input_database_subnet_group_name"></a> [database\_subnet\_group\_name](#input\_database\_subnet\_group\_name) | Name of DB subnet group. | `string` | n/a | yes |
-| <a name="input_db_parameters"></a> [db\_parameters](#input\_db\_parameters) | The name and Values of the DB parameters. | <pre>list(object({<br>    name  = string<br>    value = string<br>  }))</pre> | <pre>[<br>  {<br>    "name": "autocommit",<br>    "value": "1"<br>  }<br>]</pre> | no |
+| <a name="input_db_cluster_family"></a> [db\_cluster\_family](#input\_db\_cluster\_family) | The family of the DB cluster group. | `string` | `"aurora-mysql8.0"` | no |
+| <a name="input_db_cluster_parameter_group_name"></a> [db\_cluster\_parameter\_group\_name](#input\_db\_cluster\_parameter\_group\_name) | The name of the DB cluster parameter group. | `string` | `null` | no |
+| <a name="input_db_cluster_parameters"></a> [db\_cluster\_parameters](#input\_db\_cluster\_parameters) | The name and values of the DB parameters. | <pre>list(object({<br>    apply_method = optional(string)<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
+| <a name="input_db_instance_family"></a> [db\_instance\_family](#input\_db\_instance\_family) | The family of the DB parameter group. | `string` | `"mysql8.0"` | no |
+| <a name="input_db_instance_parameter_group_name"></a> [db\_instance\_parameter\_group\_name](#input\_db\_instance\_parameter\_group\_name) | The name of the DB parameter group. | `string` | `null` | no |
+| <a name="input_db_instance_parameters"></a> [db\_instance\_parameters](#input\_db\_instance\_parameters) | The name and values of the DB parameters. | <pre>list(object({<br>    apply_method = optional(string)<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
 | <a name="input_db_proxy_users"></a> [db\_proxy\_users](#input\_db\_proxy\_users) | List of DB Proxy users. | `list(string)` | <pre>[<br>  "application_dml",<br>  "application_ddl"<br>]</pre> | no |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | If the DB instance should have deletion protection enabled. | `bool` | `false` | no |
 | <a name="input_enable_db_proxy"></a> [enable\_db\_proxy](#input\_enable\_db\_proxy) | Enable DB Proxy. | `bool` | `true` | no |
