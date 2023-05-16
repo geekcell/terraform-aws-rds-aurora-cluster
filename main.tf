@@ -155,7 +155,7 @@ module "backup" {
 module "db_instance_parameter_group" {
   count = length(var.db_instance_parameters) > 0 ? 1 : 0
 
-  source = "../db_parameter_group/"
+  source = "./modules/db_parameter_group/"
 
   name   = coalesce(var.db_instance_parameter_group_name, var.cluster_identifier)
   family = var.db_instance_family
@@ -168,7 +168,7 @@ module "db_instance_parameter_group" {
 module "db_cluster_parameter_group" {
   count = length(var.db_cluster_parameters) > 0 ? 1 : 0
 
-  source = "../db_parameter_group/"
+  source = "./modules/db_parameter_group/"
 
   name   = coalesce(var.db_cluster_parameter_group_name, var.cluster_identifier)
   family = var.db_cluster_family
