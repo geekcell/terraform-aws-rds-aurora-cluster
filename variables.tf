@@ -114,7 +114,7 @@ variable "instance_class" {
 }
 
 variable "db_instance_family" {
-  default     = "mysql8.0"
+  default     = "aurora-mysql8.0"
   description = "The family of the DB parameter group."
   type        = string
 }
