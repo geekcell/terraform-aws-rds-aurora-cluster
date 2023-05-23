@@ -72,7 +72,7 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_db_cluster_family"></a> [db\_cluster\_family](#input\_db\_cluster\_family) | The family of the DB cluster group. | `string` | `"aurora-mysql8.0"` | no |
 | <a name="input_db_cluster_parameter_group_name"></a> [db\_cluster\_parameter\_group\_name](#input\_db\_cluster\_parameter\_group\_name) | The name of the DB cluster parameter group. | `string` | `null` | no |
 | <a name="input_db_cluster_parameters"></a> [db\_cluster\_parameters](#input\_db\_cluster\_parameters) | The name and values of the DB parameters. | <pre>list(object({<br>    apply_method = optional(string)<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
-| <a name="input_db_instance_family"></a> [db\_instance\_family](#input\_db\_instance\_family) | The family of the DB parameter group. | `string` | `"mysql8.0"` | no |
+| <a name="input_db_instance_family"></a> [db\_instance\_family](#input\_db\_instance\_family) | The family of the DB parameter group. | `string` | `"aurora-mysql8.0"` | no |
 | <a name="input_db_instance_parameter_group_name"></a> [db\_instance\_parameter\_group\_name](#input\_db\_instance\_parameter\_group\_name) | The name of the DB parameter group. | `string` | `null` | no |
 | <a name="input_db_instance_parameters"></a> [db\_instance\_parameters](#input\_db\_instance\_parameters) | The name and values of the DB parameters. | <pre>list(object({<br>    apply_method = optional(string)<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
 | <a name="input_db_proxy_users"></a> [db\_proxy\_users](#input\_db\_proxy\_users) | List of DB Proxy users. | `list(string)` | <pre>[<br>  "application_dml",<br>  "application_ddl"<br>]</pre> | no |
@@ -97,7 +97,10 @@ such as extended backups, user management, and autoscaling.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | n/a |
+| <a name="output_instance_endpoint"></a> [instance\_endpoint](#output\_instance\_endpoint) | n/a |
 
 ## Providers
 

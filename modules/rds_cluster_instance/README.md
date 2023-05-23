@@ -24,7 +24,9 @@
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | The address of the RDS instance. |
 
 ## Providers
 
