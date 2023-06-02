@@ -1,11 +1,14 @@
 output "arn" {
-  value = aws_rds_cluster.main.arn
+  description = "The ARN of the cluster"
+  value       = aws_rds_cluster.main.arn
 }
 
 output "id" {
-  value = aws_rds_cluster.main.id
+  description = "The ID of the cluster"
+  value       = aws_rds_cluster.main.id
 }
 
 output "endpoint" {
-  value = aws_rds_cluster.main.endpoint
+  description = "The cluster endpoint"
+  value       = aws_rds_cluster.main.endpoint
 }

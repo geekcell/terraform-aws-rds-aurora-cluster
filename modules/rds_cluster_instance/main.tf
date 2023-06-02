@@ -51,7 +51,7 @@ module "db_enhanced_monitoring" {
 module "kms" {
   for_each = toset(["performance_insights"])
 
-  source = "github.com/geekcell/terraform-aws-kms?ref=main"
+  source = "github.com/geekcell/terraform-aws-kms?ref=v1"
   alias  = format("alias/rds/cluster/%s/instance/%s/%s", var.identifier, var.identifier, each.key)
 }
 
