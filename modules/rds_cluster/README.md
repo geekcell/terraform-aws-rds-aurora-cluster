@@ -42,9 +42,9 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_arn"></a> [arn](#output\_arn) | n/a |
-| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
-| <a name="output_id"></a> [id](#output\_id) | n/a |
+| <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the cluster |
+| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | The cluster endpoint |
+| <a name="output_id"></a> [id](#output\_id) | The ID of the cluster |
 
 ## Providers
 

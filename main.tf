@@ -133,7 +133,7 @@ module "db_event_subscription" {
 module "backup" {
   count = var.enable_enhanced_backups ? 1 : 0
 
-  source = "github.com/geekcell/terraform-aws-backup?ref=main"
+  source = "github.com/geekcell/terraform-aws-backup?ref=v1"
 
   # Vault name for this backup
   vault_name = "${var.cluster_identifier}-rds"

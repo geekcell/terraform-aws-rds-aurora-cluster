@@ -82,7 +82,7 @@ module "autoscaling" {
 
 module "kms" {
   for_each = toset(["storage"])
-  source   = "github.com/geekcell/terraform-aws-kms?ref=main"
+  source   = "github.com/geekcell/terraform-aws-kms?ref=v1"
   alias    = format("/rds/cluster/%s/%s", var.cluster_identifier, each.key)
 }
 

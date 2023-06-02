@@ -99,8 +99,8 @@ such as extended backups, user management, and autoscaling.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | n/a |
-| <a name="output_instance_endpoint"></a> [instance\_endpoint](#output\_instance\_endpoint) | n/a |
+| <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | The cluster endpoint |
+| <a name="output_instance_endpoint"></a> [instance\_endpoint](#output\_instance\_endpoint) | The instance endpoint |
 
 ## Providers
 

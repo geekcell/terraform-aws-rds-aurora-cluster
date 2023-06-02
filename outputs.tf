@@ -1,7 +1,9 @@
 output "cluster_endpoint" {
-  value = module.rds_cluster.endpoint
+  description = "The cluster endpoint"
+  value       = module.rds_cluster.endpoint
 }
 
 output "instance_endpoint" {
-  value = module.rds_cluster_instance.endpoint
+  description = "The instance endpoint"
+  value       = module.rds_cluster_instance.endpoint
 }
