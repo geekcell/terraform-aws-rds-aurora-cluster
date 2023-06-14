@@ -81,6 +81,7 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_enable_enhanced_backups"></a> [enable\_enhanced\_backups](#input\_enable\_enhanced\_backups) | Enable enhanced backups. | `bool` | `true` | no |
 | <a name="input_enabled_cloudwatch_logs_exports"></a> [enabled\_cloudwatch\_logs\_exports](#input\_enabled\_cloudwatch\_logs\_exports) | Set of log types to enable for exporting to CloudWatch logs. | `list(string)` | <pre>[<br>  "audit",<br>  "error",<br>  "general",<br>  "slowquery"<br>]</pre> | no |
 | <a name="input_engine"></a> [engine](#input\_engine) | The engine to use. | `string` | `"aurora-mysql"` | no |
+| <a name="input_engine_mode"></a> [engine\_mode](#input\_engine\_mode) | The engine mode to use. | `string` | `"provisioned"` | no |
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | The engine version to use. | `string` | `null` | no |
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | The instance type of the RDS instance. | `string` | n/a | yes |
 | <a name="input_monitoring_interval"></a> [monitoring\_interval](#input\_monitoring\_interval) | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. | `number` | `60` | no |
@@ -89,6 +90,7 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections. | `number` | `3306` | no |
 | <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range (in UTC) during which automated backups are created if they are enabled. | `string` | `"00:00-02:30"` | no |
 | <a name="input_preferred_maintenance_window"></a> [preferred\_maintenance\_window](#input\_preferred\_maintenance\_window) | The weekly time range during which system maintenance can occur, in (UTC). | `string` | `"Mon:03:00-Mon:04:30"` | no |
+| <a name="input_serverlessv2_scaling_configuration"></a> [serverlessv2\_scaling\_configuration](#input\_serverlessv2\_scaling\_configuration) | The scaling configuration of the Aurora Serverless DB cluster. | <pre>object({<br>    max_capacity = number<br>    min_capacity = number<br>  })</pre> | <pre>{<br>  "max_capacity": null,<br>  "min_capacity": null<br>}</pre> | no |
 | <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | Storage type. | `string` | `"aurora"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS Cluster Instance. | `map(any)` | `{}` | no |
 | <a name="input_vpc_security_group_ids_rds_cluster"></a> [vpc\_security\_group\_ids\_rds\_cluster](#input\_vpc\_security\_group\_ids\_rds\_cluster) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |

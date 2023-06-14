@@ -31,10 +31,14 @@ module "rds_cluster" {
   # How many read replicas to create
   additional_reader_capacity = var.additional_reader_capacity
 
-  # The engine version to use
+  # The engine
   engine         = var.engine
   engine_version = var.engine_version
+  engine_mode    = var.engine_mode
   database_name  = var.database_name
+
+  # Serverless
+  serverlessv2_scaling_configuration = var.serverlessv2_scaling_configuration
 
   # Network
   db_subnet_group_name   = var.database_subnet_group_name
