@@ -63,6 +63,16 @@ resource "aws_rds_cluster" "main" {
   # Security
   deletion_protection = var.deletion_protection
 
+  # Serverless
+  dynamic "serverlessv2_scaling_configuration" {
+    for_each = var.serverlessv2_scaling_configuration == null ? [] : [1]
+    content {
+      max_capacity = var.serverlessv2_scaling_configuration.max_capacity
+      min_capacity = var.serverlessv2_scaling_configuration.min_capacity
+    }
+  }
+
+  # Tags
   tags = merge(
     var.tags,
     {
