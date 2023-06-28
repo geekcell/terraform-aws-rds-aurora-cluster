@@ -12,7 +12,7 @@ resource "aws_rds_cluster" "main" {
   # Storage
   allocated_storage = var.allocated_storage
   iops              = var.iops
-  kms_key_id        = module.kms["storage"].key_arn
+  kms_key_id        = module.kms.key_arn
   storage_encrypted = var.storage_encrypted
   storage_type      = var.storage_type
 
@@ -91,9 +91,11 @@ module "autoscaling" {
 }
 
 module "kms" {
-  for_each = toset(["storage"])
-  source   = "github.com/geekcell/terraform-aws-kms?ref=v1"
-  alias    = format("/rds/cluster/%s/%s", var.cluster_identifier, each.key)
+  source  = "geekcell/kms/aws"
+  version = ">= 1.0.0, < 2.0.0"
+
+  alias = "/rds/cluster/${var.cluster_identifier}/storage"
+  tags  = var.tags
 }
 
 resource "random_string" "master_username" {

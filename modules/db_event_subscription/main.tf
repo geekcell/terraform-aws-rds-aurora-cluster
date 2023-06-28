@@ -13,8 +13,11 @@ resource "aws_db_event_subscription" "main" {
 }
 
 module "notification" {
-  source = "github.com/geekcell/terraform-aws-sns-email-notification?ref=v1"
+  source  = "geekcell/sns-email-notification/aws"
+  version = ">= 1.0.0, < 2.0.0"
 
   name            = var.name
   email_addresses = var.recipients
+
+  tags = var.tags
 }

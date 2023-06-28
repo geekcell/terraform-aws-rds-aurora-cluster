@@ -27,9 +27,9 @@ resource "aws_secretsmanager_secret_version" "main" {
 }
 
 module "kms" {
-  source = "github.com/geekcell/terraform-aws-kms?ref=v1"
+  source  = "geekcell/kms/aws"
+  version = ">= 1.0.0, < 2.0.0"
 
   alias = var.name
-
-  tags = var.tags
+  tags  = var.tags
 }

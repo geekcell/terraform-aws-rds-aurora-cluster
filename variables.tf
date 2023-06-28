@@ -205,7 +205,7 @@ variable "serverlessv2_scaling_configuration" {
     min_capacity = null
   }
   description = "The scaling configuration of the Aurora Serverless DB cluster."
-  type        = object({
+  type = object({
     max_capacity = number
     min_capacity = number
   })
