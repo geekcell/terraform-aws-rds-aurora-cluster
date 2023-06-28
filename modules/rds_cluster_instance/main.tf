@@ -19,7 +19,7 @@ resource "aws_rds_cluster_instance" "main" {
 
   # Performance Insights
   performance_insights_enabled          = var.performance_insights_enabled
-  performance_insights_kms_key_id       = module.kms["performance_insights"].key_arn
+  performance_insights_kms_key_id       = module.kms.key_arn
   performance_insights_retention_period = var.performance_insights_retention_period
 
   # Network
@@ -49,10 +49,11 @@ module "db_enhanced_monitoring" {
 }
 
 module "kms" {
-  for_each = toset(["performance_insights"])
+  source  = "geekcell/kms/aws"
+  version = ">= 1.0.0, < 2.0.0"
 
-  source = "github.com/geekcell/terraform-aws-kms?ref=v1"
-  alias  = format("alias/rds/cluster/%s/instance/%s/%s", var.identifier, var.identifier, each.key)
+  alias = "alias/rds/cluster/${var.identifier}/instance/${var.identifier}/performance-insights"
+  tags  = var.tags
 }
 
 resource "random_string" "master_username" {

@@ -159,7 +159,7 @@ variable "replication_source_identifier" {
 
 variable "serverlessv2_scaling_configuration" {
   description = "The scaling configuration of the Aurora Serverless DB cluster."
-  type        = object({
+  type = object({
     max_capacity = optional(number)
     min_capacity = optional(number)
   })

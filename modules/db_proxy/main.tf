@@ -72,12 +72,7 @@ module "db_proxy_secret" {
   source   = "../db_proxy_secret"
 
   # Name
-  name = format(
-    "rds/proxy/%s/cluster/%s/user/%s/credentials",
-    var.name,
-    var.rds_cluster_identifier,
-    each.key
-  )
+  name        = "rds/proxy/${var.name}/cluster/${var.rds_cluster_identifier}/user/${each.key}/credentials"
   description = "AWS RDS Proxy User Credentials."
   username    = each.key
 
