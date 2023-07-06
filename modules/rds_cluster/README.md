@@ -56,7 +56,7 @@
 ## Resources
 
 - resource.aws_rds_cluster.main (modules/rds_cluster/main.tf#1)
-- resource.random_password.master_password (modules/rds_cluster/main.tf#112)
-- resource.random_string.master_username (modules/rds_cluster/main.tf#106)
+- resource.random_password.master_password (modules/rds_cluster/main.tf#107)
+- resource.random_string.master_username (modules/rds_cluster/main.tf#101)
 - data source.aws_availability_zones.available (modules/rds_cluster/data.tf#1)
 <!-- END_TF_DOCS -->
