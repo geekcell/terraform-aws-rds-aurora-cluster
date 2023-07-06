@@ -63,15 +63,6 @@ resource "aws_rds_cluster" "main" {
   # Security
   deletion_protection = var.deletion_protection
 
-  # Serverless
-  dynamic "serverlessv2_scaling_configuration" {
-    for_each = var.serverlessv2_scaling_configuration == null ? [] : [1]
-    content {
-      max_capacity = var.serverlessv2_scaling_configuration.max_capacity
-      min_capacity = var.serverlessv2_scaling_configuration.min_capacity
-    }
-  }
-
   # Tags
   tags = merge(
     var.tags,
@@ -80,6 +71,15 @@ resource "aws_rds_cluster" "main" {
       "ServiceType" = "cluster"
     }
   )
+
+  # Once you start the Aurora cluster as "provisioned", then change it to ServerlessV2, then change it back to
+  # "provisioned", then according to AWS Support it is no longer possible to remove this setting - it is just
+  # no longer used. If this has happened to you, too: this is why we ignore changes to this setting.
+  lifecycle {
+    ignore_changes = [
+      serverlessv2_scaling_configuration
+    ]
+  }
 }
 
 module "autoscaling" {

@@ -199,18 +199,6 @@ variable "port" {
   type        = number
 }
 
-variable "serverlessv2_scaling_configuration" {
-  default = {
-    max_capacity = null
-    min_capacity = null
-  }
-  description = "The scaling configuration of the Aurora Serverless DB cluster."
-  type = object({
-    max_capacity = number
-    min_capacity = number
-  })
-}
-
 variable "storage_type" {
   default     = "aurora"
   description = "Storage type."

@@ -100,6 +100,7 @@ variable "engine" {
 }
 
 variable "engine_mode" {
+  default     = "provisioned"
   description = "The database engine mode."
   type        = string
 }
@@ -155,14 +156,6 @@ variable "replication_source_identifier" {
   default     = null
   description = "ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica."
   type        = string
-}
-
-variable "serverlessv2_scaling_configuration" {
-  description = "The scaling configuration of the Aurora Serverless DB cluster."
-  type = object({
-    max_capacity = optional(number)
-    min_capacity = optional(number)
-  })
 }
 
 variable "source_region" {

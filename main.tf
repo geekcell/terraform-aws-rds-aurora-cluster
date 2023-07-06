@@ -37,9 +37,6 @@ module "rds_cluster" {
   engine_mode    = var.engine_mode
   database_name  = var.database_name
 
-  # Serverless
-  serverlessv2_scaling_configuration = var.serverlessv2_scaling_configuration
-
   # Network
   db_subnet_group_name   = var.database_subnet_group_name
   vpc_security_group_ids = var.vpc_security_group_ids_rds_cluster

@@ -90,7 +90,6 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections. | `number` | `3306` | no |
 | <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range (in UTC) during which automated backups are created if they are enabled. | `string` | `"00:00-02:30"` | no |
 | <a name="input_preferred_maintenance_window"></a> [preferred\_maintenance\_window](#input\_preferred\_maintenance\_window) | The weekly time range during which system maintenance can occur, in (UTC). | `string` | `"Mon:03:00-Mon:04:30"` | no |
-| <a name="input_serverlessv2_scaling_configuration"></a> [serverlessv2\_scaling\_configuration](#input\_serverlessv2\_scaling\_configuration) | The scaling configuration of the Aurora Serverless DB cluster. | <pre>object({<br>    max_capacity = number<br>    min_capacity = number<br>  })</pre> | <pre>{<br>  "max_capacity": null,<br>  "min_capacity": null<br>}</pre> | no |
 | <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | Storage type. | `string` | `"aurora"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS Cluster Instance. | `map(any)` | `{}` | no |
 | <a name="input_vpc_security_group_ids_rds_cluster"></a> [vpc\_security\_group\_ids\_rds\_cluster](#input\_vpc\_security\_group\_ids\_rds\_cluster) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |
