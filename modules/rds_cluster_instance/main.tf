@@ -19,7 +19,7 @@ resource "aws_rds_cluster_instance" "main" {
 
   # Performance Insights
   performance_insights_enabled          = var.performance_insights_enabled
-  performance_insights_kms_key_id       = module.kms.key_arn
+  performance_insights_kms_key_id       = var.performance_insights_enabled ? module.kms[0].key_arn : null
   performance_insights_retention_period = var.performance_insights_retention_period
 
   # Network
@@ -49,6 +49,8 @@ module "db_enhanced_monitoring" {
 }
 
 module "kms" {
+  count = var.performance_insights_enabled ? 1 : 0
+
   source  = "geekcell/kms/aws"
   version = ">= 1.0.0, < 2.0.0"
 

@@ -38,6 +38,6 @@
 ## Resources
 
 - resource.aws_rds_cluster_instance.main (modules/rds_cluster_instance/main.tf#1)
-- resource.random_password.master_password (modules/rds_cluster_instance/main.tf#64)
-- resource.random_string.master_username (modules/rds_cluster_instance/main.tf#59)
+- resource.random_password.master_password (modules/rds_cluster_instance/main.tf#66)
+- resource.random_string.master_username (modules/rds_cluster_instance/main.tf#61)
 <!-- END_TF_DOCS -->
