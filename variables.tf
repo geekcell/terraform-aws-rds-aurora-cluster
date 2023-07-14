@@ -73,12 +73,6 @@ variable "deletion_protection" {
   type        = bool
 }
 
-variable "enable_enhanced_backups" {
-  default     = true
-  description = "Enable enhanced backups."
-  type        = bool
-}
-
 variable "enable_db_proxy" {
   default     = true
   description = "Enable DB Proxy."

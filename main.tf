@@ -131,28 +131,6 @@ module "db_event_subscription" {
   recipients = var.database_event_recipients
 }
 
-module "backup" {
-  count = var.enable_enhanced_backups ? 1 : 0
-
-  source = "github.com/geekcell/terraform-aws-backup?ref=v1"
-
-  # Vault name for this backup
-  vault_name = "${var.cluster_identifier}-rds"
-
-  # Backup plan name, most of the time the identifier of the cluster is fine
-  backup_name = "${var.cluster_identifier}-rds"
-
-  # Resources to backup
-  resources = [
-    module.rds_cluster.arn
-  ]
-
-  # AWS needs to know what kind of services we want to backup
-  service = "rds"
-
-  tags = var.tags
-}
-
 module "db_instance_parameter_group" {
   count = length(var.db_instance_parameters) > 0 ? 1 : 0
 
