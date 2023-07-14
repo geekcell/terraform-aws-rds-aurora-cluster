@@ -88,20 +88,20 @@ resource "aws_rds_cluster" "main" {
   }
 }
 
-module "autoscaling" {
-  count  = var.additional_reader_capacity >= 1 ? 1 : 0
-  source = "../rds_cluster_autoscaling"
-
-  cluster_identifier = aws_rds_cluster.main.id
-  min_capacity       = var.additional_reader_capacity
-}
-
 module "kms" {
   source  = "geekcell/kms/aws"
   version = ">= 1.0.0, < 2.0.0"
 
   alias = "rds/cluster/${var.cluster_identifier}/storage"
   tags  = var.tags
+}
+
+module "autoscaling" {
+  count  = var.additional_reader_capacity >= 1 ? 1 : 0
+  source = "../rds_cluster_autoscaling"
+
+  cluster_identifier = aws_rds_cluster.main.id
+  min_capacity       = var.additional_reader_capacity
 }
 
 resource "random_string" "master_username" {
