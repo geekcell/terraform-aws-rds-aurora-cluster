@@ -111,6 +111,6 @@ resource "random_string" "master_username" {
 }
 
 resource "random_password" "master_password" {
-  length  = 24
+  length  = 40
   special = false
 }
