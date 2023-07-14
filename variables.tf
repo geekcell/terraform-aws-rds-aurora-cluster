@@ -68,7 +68,7 @@ variable "db_proxy_users" {
 }
 
 variable "deletion_protection" {
-  default     = false
+  default     = true
   description = "If the DB instance should have deletion protection enabled."
   type        = bool
 }
