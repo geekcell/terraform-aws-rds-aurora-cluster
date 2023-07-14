@@ -100,7 +100,7 @@ module "kms" {
   source  = "geekcell/kms/aws"
   version = ">= 1.0.0, < 2.0.0"
 
-  alias = "/rds/cluster/${var.cluster_identifier}/storage"
+  alias = "rds/cluster/${var.cluster_identifier}/storage"
   tags  = var.tags
 }
 
