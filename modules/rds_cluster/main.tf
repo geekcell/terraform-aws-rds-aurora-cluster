@@ -20,8 +20,10 @@ resource "aws_rds_cluster" "main" {
   database_name = var.database_name
 
   # Master-Credentials
-  master_username                     = random_string.master_username.result
-  master_password                     = random_password.master_password.result
+  master_username = random_string.master_username.result
+  master_password = random_password.master_password.result
+
+  # IAM authentication
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
 
   # Backups
