@@ -135,7 +135,7 @@ variable "iops" {
 }
 
 variable "port" {
-  default     = 3306
+  default     = 6033
   description = "The port on which the DB accepts connections."
   type        = number
 }

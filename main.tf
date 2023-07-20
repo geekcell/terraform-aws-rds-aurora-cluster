@@ -1,13 +1,10 @@
 /**
  * # Terraform AWS RDS Aurora Cluster
  *
- * This Terraform module provides a preconfigured solution for setting up AWS
- * RDS Aurora clusters in your AWS account. With this module, you can easily
- * and efficiently create and manage RDS Aurora clusters with advanced features
- * such as extended backups for daily, weekly, monthly, quarterly, and yearly
- * intervals. Our team has extensive experience working with AWS RDS Aurora
- * and has optimized this module to provide the best possible experience for
- * users.
+ * This Terraform module provides a preconfigured solution for setting up AWS RDS Aurora clusters in your AWS account.
+ * With this module, you can easily and efficiently create and manage RDS Aurora clusters with advanced features. Our
+ * team has extensive experience working with AWS RDS Aurora and has optimized this module to provide the best possible
+ * experience for users.
  *
  * By using this Terraform module, you can save time and effort in setting
  * up and managing your RDS Aurora clusters, as well as ensure that your data
@@ -129,28 +126,6 @@ module "db_event_subscription" {
   ]
 
   recipients = var.database_event_recipients
-}
-
-module "backup" {
-  count = var.enable_enhanced_backups ? 1 : 0
-
-  source = "github.com/geekcell/terraform-aws-backup?ref=v1"
-
-  # Vault name for this backup
-  vault_name = "${var.cluster_identifier}-rds"
-
-  # Backup plan name, most of the time the identifier of the cluster is fine
-  backup_name = "${var.cluster_identifier}-rds"
-
-  # Resources to backup
-  resources = [
-    module.rds_cluster.arn
-  ]
-
-  # AWS needs to know what kind of services we want to backup
-  service = "rds"
-
-  tags = var.tags
 }
 
 module "db_instance_parameter_group" {

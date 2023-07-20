@@ -68,14 +68,8 @@ variable "db_proxy_users" {
 }
 
 variable "deletion_protection" {
-  default     = false
-  description = "If the DB instance should have deletion protection enabled."
-  type        = bool
-}
-
-variable "enable_enhanced_backups" {
   default     = true
-  description = "Enable enhanced backups."
+  description = "If the DB instance should have deletion protection enabled."
   type        = bool
 }
 

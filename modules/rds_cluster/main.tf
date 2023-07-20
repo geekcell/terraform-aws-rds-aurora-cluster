@@ -1,3 +1,7 @@
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
 resource "aws_rds_cluster" "main" {
   # Cluster identifier
   cluster_identifier = var.cluster_identifier
@@ -20,8 +24,10 @@ resource "aws_rds_cluster" "main" {
   database_name = var.database_name
 
   # Master-Credentials
-  master_username                     = random_string.master_username.result
-  master_password                     = random_password.master_password.result
+  master_username = random_string.master_username.result
+  master_password = random_password.master_password.result
+
+  # IAM authentication
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
 
   # Backups
@@ -82,20 +88,20 @@ resource "aws_rds_cluster" "main" {
   }
 }
 
+module "kms" {
+  source  = "geekcell/kms/aws"
+  version = ">= 1.0.0, < 2.0.0"
+
+  alias = "rds/cluster/${var.cluster_identifier}/storage"
+  tags  = var.tags
+}
+
 module "autoscaling" {
   count  = var.additional_reader_capacity >= 1 ? 1 : 0
   source = "../rds_cluster_autoscaling"
 
   cluster_identifier = aws_rds_cluster.main.id
   min_capacity       = var.additional_reader_capacity
-}
-
-module "kms" {
-  source  = "geekcell/kms/aws"
-  version = ">= 1.0.0, < 2.0.0"
-
-  alias = "/rds/cluster/${var.cluster_identifier}/storage"
-  tags  = var.tags
 }
 
 resource "random_string" "master_username" {
@@ -105,6 +111,6 @@ resource "random_string" "master_username" {
 }
 
 resource "random_password" "master_password" {
-  length  = 24
+  length  = 40
   special = false
 }
