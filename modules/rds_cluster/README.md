@@ -27,7 +27,7 @@
 | <a name="input_iam_database_authentication_enabled"></a> [iam\_database\_authentication\_enabled](#input\_iam\_database\_authentication\_enabled) | Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. | `bool` | `false` | no |
 | <a name="input_iam_roles"></a> [iam\_roles](#input\_iam\_roles) | A List of ARNs for the IAM roles to associate to the RDS Cluster. | `list(string)` | `null` | no |
 | <a name="input_iops"></a> [iops](#input\_iops) | The amount of Provisioned IOPS to be initially allocated for each DB instance in the Multi-AZ DB cluster. | `number` | `null` | no |
-| <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections. | `number` | `3306` | no |
+| <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections. | `number` | `6033` | no |
 | <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range (in UTC) during which automated backups are created if they are enabled. | `string` | `"00:00-02:30"` | no |
 | <a name="input_preferred_maintenance_window"></a> [preferred\_maintenance\_window](#input\_preferred\_maintenance\_window) | The weekly time range during which system maintenance can occur, in (UTC). | `string` | `"Mon:03:00-Mon:04:30"` | no |
 | <a name="input_replication_source_identifier"></a> [replication\_source\_identifier](#input\_replication\_source\_identifier) | ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica. | `string` | `null` | no |
@@ -55,8 +55,8 @@
 
 ## Resources
 
-- resource.aws_rds_cluster.main (modules/rds_cluster/main.tf#1)
-- resource.random_password.master_password (modules/rds_cluster/main.tf#107)
-- resource.random_string.master_username (modules/rds_cluster/main.tf#101)
-- data source.aws_availability_zones.available (modules/rds_cluster/data.tf#1)
+- resource.aws_rds_cluster.main (modules/rds_cluster/main.tf#5)
+- resource.random_password.master_password (modules/rds_cluster/main.tf#113)
+- resource.random_string.master_username (modules/rds_cluster/main.tf#107)
+- data source.aws_availability_zones.available (modules/rds_cluster/main.tf#1)
 <!-- END_TF_DOCS -->

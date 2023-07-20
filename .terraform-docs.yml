@@ -32,10 +32,6 @@ content: |-
     ```hcl
     {{ include "examples/with-rds-proxy/main.tf" }}
     ```
-    ### with enhanced Backups
-    ```hcl
-    {{ include "examples/with-enhanced-backups/main.tf" }}
-    ```
 
 output:
   file: "README.md"

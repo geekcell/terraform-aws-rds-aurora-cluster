@@ -35,13 +35,10 @@
 
 # Terraform AWS RDS Aurora Cluster
 
-This Terraform module provides a preconfigured solution for setting up AWS
-RDS Aurora clusters in your AWS account. With this module, you can easily
-and efficiently create and manage RDS Aurora clusters with advanced features
-such as extended backups for daily, weekly, monthly, quarterly, and yearly
-intervals. Our team has extensive experience working with AWS RDS Aurora
-and has optimized this module to provide the best possible experience for
-users.
+This Terraform module provides a preconfigured solution for setting up AWS RDS Aurora clusters in your AWS account.
+With this module, you can easily and efficiently create and manage RDS Aurora clusters with advanced features. Our
+team has extensive experience working with AWS RDS Aurora and has optimized this module to provide the best possible
+experience for users.
 
 By using this Terraform module, you can save time and effort in setting
 up and managing your RDS Aurora clusters, as well as ensure that your data
@@ -76,9 +73,8 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_db_instance_parameter_group_name"></a> [db\_instance\_parameter\_group\_name](#input\_db\_instance\_parameter\_group\_name) | The name of the DB parameter group. | `string` | `null` | no |
 | <a name="input_db_instance_parameters"></a> [db\_instance\_parameters](#input\_db\_instance\_parameters) | The name and values of the DB parameters. | <pre>list(object({<br>    apply_method = optional(string)<br>    name         = string<br>    value        = string<br>  }))</pre> | `[]` | no |
 | <a name="input_db_proxy_users"></a> [db\_proxy\_users](#input\_db\_proxy\_users) | List of DB Proxy users. | `list(string)` | <pre>[<br>  "application_dml",<br>  "application_ddl"<br>]</pre> | no |
-| <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | If the DB instance should have deletion protection enabled. | `bool` | `false` | no |
+| <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | If the DB instance should have deletion protection enabled. | `bool` | `true` | no |
 | <a name="input_enable_db_proxy"></a> [enable\_db\_proxy](#input\_enable\_db\_proxy) | Enable DB Proxy. | `bool` | `true` | no |
-| <a name="input_enable_enhanced_backups"></a> [enable\_enhanced\_backups](#input\_enable\_enhanced\_backups) | Enable enhanced backups. | `bool` | `true` | no |
 | <a name="input_enabled_cloudwatch_logs_exports"></a> [enabled\_cloudwatch\_logs\_exports](#input\_enabled\_cloudwatch\_logs\_exports) | Set of log types to enable for exporting to CloudWatch logs. | `list(string)` | <pre>[<br>  "audit",<br>  "error",<br>  "general",<br>  "slowquery"<br>]</pre> | no |
 | <a name="input_engine"></a> [engine](#input\_engine) | The engine to use. | `string` | `"aurora-mysql"` | no |
 | <a name="input_engine_mode"></a> [engine\_mode](#input\_engine\_mode) | The engine mode to use. | `string` | `"provisioned"` | no |
@@ -137,20 +133,6 @@ module "with-rds-proxy" {
   ]
 
   enable_db_proxy = true
-}
-```
-### with enhanced Backups
-```hcl
-module "with-enhanced-backups" {
-  source = "../../"
-
-  cluster_identifier                 = "my-cluster"
-  database_subnet_group_name         = "db-subnet-group-name"
-  instance_class                     = "db.t4g.medium"
-  vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
-  vpc_subnet_ids                     = ["subnet-12345678", "subnet-87654321"]
-
-  enable_enhanced_backups = true
 }
 ```
 <!-- END_TF_DOCS -->
