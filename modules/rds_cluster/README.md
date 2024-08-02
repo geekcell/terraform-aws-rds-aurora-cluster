@@ -34,7 +34,6 @@
 | <a name="input_skip_final_snapshot"></a> [skip\_final\_snapshot](#input\_skip\_final\_snapshot) | Determines whether a final DB snapshot is created before the DB cluster is deleted. | `bool` | `false` | no |
 | <a name="input_source_region"></a> [source\_region](#input\_source\_region) | The source region for an encrypted replica DB cluster. | `string` | `null` | no |
 | <a name="input_storage_encrypted"></a> [storage\_encrypted](#input\_storage\_encrypted) | Specifies whether the DB cluster is encrypted. | `bool` | `true` | no |
-| <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | Specifies the storage type to be associated with the DB cluster. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS Cluster. | `map(any)` | `{}` | no |
 | <a name="input_vpc_security_group_ids"></a> [vpc\_security\_group\_ids](#input\_vpc\_security\_group\_ids) | List of VPC security groups to associate with the Cluster | `list(string)` | `null` | no |
 
@@ -56,7 +55,7 @@
 ## Resources
 
 - resource.aws_rds_cluster.main (modules/rds_cluster/main.tf#5)
-- resource.random_password.master_password (modules/rds_cluster/main.tf#113)
-- resource.random_string.master_username (modules/rds_cluster/main.tf#107)
+- resource.random_password.master_password (modules/rds_cluster/main.tf#112)
+- resource.random_string.master_username (modules/rds_cluster/main.tf#106)
 - data source.aws_availability_zones.available (modules/rds_cluster/main.tf#1)
 <!-- END_TF_DOCS -->

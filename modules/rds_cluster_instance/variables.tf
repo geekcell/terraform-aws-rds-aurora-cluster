@@ -19,7 +19,7 @@ variable "apply_immediately" {
 }
 
 variable "ca_cert_identifier" {
-  default     = "rds-ca-2019"
+  default     = "rds-ca-rsa2048-g1"
   description = "The identifier of the CA certificate for the DB instance."
   type        = string
 }
@@ -84,15 +84,4 @@ variable "publicly_accessible" {
   default     = false
   description = "Bool to control if instance is publicly accessible."
   type        = bool
-}
-
-variable "storage_type" {
-  default     = "aurora"
-  description = "Storage type."
-  type        = string
-
-  validation {
-    condition     = contains(["aurora"], var.storage_type)
-    error_message = "Value must be `aurora`."
-  }
 }

@@ -176,12 +176,6 @@ variable "storage_encrypted" {
   type        = bool
 }
 
-variable "storage_type" {
-  default     = null
-  description = "Specifies the storage type to be associated with the DB cluster."
-  type        = string
-}
-
 variable "vpc_security_group_ids" {
   default     = null
   description = "List of VPC security groups to associate with the Cluster"

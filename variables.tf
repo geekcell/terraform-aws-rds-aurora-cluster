@@ -193,17 +193,6 @@ variable "port" {
   type        = number
 }
 
-variable "storage_type" {
-  default     = "aurora"
-  description = "Storage type."
-  type        = string
-
-  validation {
-    condition     = contains(["aurora"], var.storage_type)
-    error_message = "Value must be `aurora`."
-  }
-}
-
 variable "vpc_security_group_ids_rds_cluster" {
   default     = null
   description = "List of VPC security groups to associate with the RDS Proxy."

@@ -18,7 +18,6 @@ resource "aws_rds_cluster" "main" {
   iops              = var.iops
   kms_key_id        = module.kms.key_arn
   storage_encrypted = var.storage_encrypted
-  storage_type      = var.storage_type
 
   # Database name
   database_name = var.database_name
