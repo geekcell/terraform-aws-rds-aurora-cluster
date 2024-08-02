@@ -106,9 +106,9 @@ No providers.
 
 
 # Examples
-  ### Basic Example
-  ```hcl
-  module "basic-example" {
+### Basic Example
+```hcl
+module "basic-example" {
   source = "../../"
 
   cluster_identifier                 = "my-db"
@@ -117,10 +117,10 @@ No providers.
   vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
   vpc_subnet_ids                     = ["subnet-12345678", "subnet-87654321"]
 }
-  ```
-  ### with RDS Proxy
-  ```hcl
-  module "with-rds-proxy" {
+```
+### with RDS Proxy
+```hcl
+module "with-rds-proxy" {
   source = "../../"
 
   cluster_identifier                 = "my-cluster"
@@ -133,5 +133,5 @@ No providers.
 
   enable_db_proxy = true
 }
-  ```
+```
 <!-- END_TF_DOCS -->
