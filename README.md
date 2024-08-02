@@ -86,7 +86,6 @@ such as extended backups, user management, and autoscaling.
 | <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections. | `number` | `3306` | no |
 | <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range (in UTC) during which automated backups are created if they are enabled. | `string` | `"00:00-02:30"` | no |
 | <a name="input_preferred_maintenance_window"></a> [preferred\_maintenance\_window](#input\_preferred\_maintenance\_window) | The weekly time range during which system maintenance can occur, in (UTC). | `string` | `"Mon:03:00-Mon:04:30"` | no |
-| <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | Storage type. | `string` | `"aurora"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to add to the AWS RDS Cluster Instance. | `map(any)` | `{}` | no |
 | <a name="input_vpc_security_group_ids_rds_cluster"></a> [vpc\_security\_group\_ids\_rds\_cluster](#input\_vpc\_security\_group\_ids\_rds\_cluster) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |
 | <a name="input_vpc_security_group_ids_rds_proxy"></a> [vpc\_security\_group\_ids\_rds\_proxy](#input\_vpc\_security\_group\_ids\_rds\_proxy) | List of VPC security groups to associate with the RDS Proxy. | `list(string)` | `null` | no |
@@ -107,9 +106,9 @@ No providers.
 
 
 # Examples
-### Basic Example
-```hcl
-module "basic-example" {
+  ### Basic Example
+  ```hcl
+  module "basic-example" {
   source = "../../"
 
   cluster_identifier                 = "my-db"
@@ -118,10 +117,10 @@ module "basic-example" {
   vpc_security_group_ids_rds_cluster = ["sg-1234567890"]
   vpc_subnet_ids                     = ["subnet-12345678", "subnet-87654321"]
 }
-```
-### with RDS Proxy
-```hcl
-module "with-rds-proxy" {
+  ```
+  ### with RDS Proxy
+  ```hcl
+  module "with-rds-proxy" {
   source = "../../"
 
   cluster_identifier                 = "my-cluster"
@@ -134,5 +133,5 @@ module "with-rds-proxy" {
 
   enable_db_proxy = true
 }
-```
+  ```
 <!-- END_TF_DOCS -->

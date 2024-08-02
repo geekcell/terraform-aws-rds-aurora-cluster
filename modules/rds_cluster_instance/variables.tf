@@ -85,14 +85,3 @@ variable "publicly_accessible" {
   description = "Bool to control if instance is publicly accessible."
   type        = bool
 }
-
-variable "storage_type" {
-  default     = "aurora"
-  description = "Storage type."
-  type        = string
-
-  validation {
-    condition     = contains(["aurora"], var.storage_type)
-    error_message = "Value must be `aurora`."
-  }
-}
