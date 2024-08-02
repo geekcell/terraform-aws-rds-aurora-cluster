@@ -19,7 +19,7 @@ variable "apply_immediately" {
 }
 
 variable "ca_cert_identifier" {
-  default     = "rds-ca-2019"
+  default     = "rds-ca-rsa2048-g1"
   description = "The identifier of the CA certificate for the DB instance."
   type        = string
 }
